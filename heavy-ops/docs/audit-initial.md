@@ -6,18 +6,33 @@
 **Outils de mesure utilisés**:
 
 - GreenIt plugin
-- DevTools
 - Lighthouse
 
+![greenIT](./img/greenIt-history.png)
+![lighthouse](./img/lighthouse.png)
 
-|                        | Vue générale | File Active  | Analyse  | Reglages  |  Moyenne|
-|------------------------|--------------|---|---|---|---|
-| requêtes               | 23           | 27 | 23  | 23  |  **24**
-| taille de la page (Ko) | 2000         | 2007  | 2000  | 2000  | **2001,7**
-| taille du DOM          | 366          | 275   | 238  | 105  | **246**
-| EcoIndex               | 69,61        | 72,60  | 74,75  | 79,05  | **74**
-| Eau (cl)               | 2,4          | 2,32  | 2,26  | 2,13 | **9,45**
-| GES (gCO2e)            | 1,61         | 1,55  | 1,50  | 1,42  |  **58,53** 
-| performance            | 60           | 60  | 60  | 60  | **60**
-| accessibility          | 100          | 100  | 100  | 100  |   **100**
-| best practice          | 100          | 100  | 100  | 100  |   **100**
+
+---
+
+## Autres remarques: 
+
+- ``assets/`` contient des fichier .svg lourds non utilisés 
+- ``data/records.json`` et ``data/analytics.json``fichier de données volumineux chargé via fetch sur api/records répété toutes les 5 secondes via setInterval.
+
+
+---
+
+## Quick wins identifiés
+
+| Catégorie | Quick win | Anti-pattern identifié | Effort estimé |
+|---|---|---|---|
+| Réseau | Supprimer le polling ou augmenter l'intervalle | `setInterval(loadAll, 5000)` sur 4 endpoints | Faible |
+| Réseau | Paginer les données côté serveur | `records.json` / `analytics.json` chargés intégralement | Moyen |
+| UI | Déplacer les calculs dérivés côté serveur | `teamSummary`, `urgentRecords` recalculés à chaque render | Moyen |
+| Media | Supprimer les SVG inutilisés | `assets/ops-panel-*.svg` non référencés | Très faible |
+
+---
+
+## Bonus
+
+Revoir l'architecture générale du repo (dossier type exportés, séparation en composants et en pages, import css intermédiaire inutile...)
