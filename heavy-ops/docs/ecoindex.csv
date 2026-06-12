@@ -1,0 +1,5 @@
+Date;Url;Nombre requêtes;Taille(kb);Taille du dom;GES (gCO2e);Eau (cl);ecoIndex;Note
+12/06/2026 11:23:18;"http://localhost:5173/settings";23;2005;105;1.42;2.13;79.04;B
+12/06/2026 11:23:10;"http://localhost:5173/analytics";23;2005;238;1.51;2.26;74.74;B
+12/06/2026 11:23:04;"http://localhost:5173/table";23;2005;275;1.53;2.30;73.31;B
+12/06/2026 11:22:57;"http://localhost:5173/";23;2005;366;1.61;2.41;69.59;C
