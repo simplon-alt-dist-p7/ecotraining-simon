@@ -8,8 +8,8 @@
 - GreenIt plugin
 - Lighthouse
 
-![greenIT](./img/greenIt-history.png)
-![lighthouse](./img/lighthouse.png)
+![greenIT](./img/greenIt-history.webp)
+![lighthouse](./img/lighthouse.webp)
 
 
 ---
