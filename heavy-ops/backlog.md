@@ -12,6 +12,8 @@
 Limiter les requêtes réseau superflues — éviter le polling excessif ou non justifié
 - **KPI associe**: 
 Nombre de requêtes réseau par minute, volume de données transférées sur 10 minutes
+- **Mesure baseline (mesurée le 02/11/2026)**: 
+4 endpoints × 1 cycle/5s = 152,6 Ko transférés par cycle → **≈ 17,9 Mo sur 10 minutes**, pour un seul onglet ouvert sans interaction utilisateur (≈ 1,8 Mo/minute)
 - **Repo ou ecran concerné**: 
 Tous les composants utilisant `setInterval(loadAll, 5000)` (dashboard, records, analytics)
 - **Critere de reussite**: 
@@ -30,6 +32,8 @@ Réduire la taille des réponses API d'au moins 90% pour un affichage initial
 Paginer les données côté serveur — ne transférer que ce qui est affiché
 - **KPI associe**: 
 Poids de la réponse sur `/api/records`, temps de chargement initial de la page
+- **Mesure baseline (mesurée le 02/11/2026)**: 
+`/api/records` pèse 145 243 o par appel, soit **≈ 95% du volume transféré à chaque cycle de polling** (152,6 Ko au total pour les 4 endpoints) — c'est le principal contributeur au coût réseau identifié en US001
 - **Repo ou ecran concerne**: 
 Endpoint `api/records`, fichiers `data/records.json` et `data/analytics.json`, composant table volumineuse
 - **Critere de reussite**: 
